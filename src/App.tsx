@@ -5,6 +5,7 @@ import {
   CurrencyDollar,
   Percent,
   QuestionMark,
+  Student,
 } from "@phosphor-icons/react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,9 +15,20 @@ function App() {
     <div className="flex flex-col justify-between h-full items-center w-full">
       <div className="text-3xl gap-2 flex flex-col items-center font-bold text-gray-700">
         <img src="/logo.svg" alt="Logo" className="w-1/3 mx-auto mt-5" />
-        Fin App
+        MatFin App
       </div>
       <div className="flex flex-col items-center justify-center h-full gap-2 w-full">
+        <button
+          className="bg-[#f0f9ff] text-black px-4 py-2 rounded-lg w-full flex gap-4 items-center "
+          onClick={() => navigate("/conceitos")}
+        >
+          <Student
+            size={32}
+            color="#0095f4"
+            className="p-1 bg-sky-100 rounded-full"
+          />
+          Conceitos
+        </button>
         <button
           className="bg-[#f0f9ff] text-black px-4 py-2 rounded-lg w-full flex gap-4 items-center "
           onClick={() => navigate("/calculadora_financeira")}
@@ -114,7 +126,10 @@ function App() {
           Quiz
         </button>
       </div>
-      <a onClick={() => navigate("/sobre")} className="text-gray-500 underline">
+      <a
+        onClick={() => navigate("/sobre")}
+        className="text-gray-500 underline py-4"
+      >
         Sobre o app
       </a>
     </div>

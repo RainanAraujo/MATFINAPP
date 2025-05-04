@@ -1,6 +1,6 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "fin-app",
+  "productName": "MATFIN APP",
   "version": "0.1.0",
   "identifier": "com.matfinapp.dev",
   "build": {
@@ -24,6 +24,9 @@
     }
   },
   "bundle": {
+    "android": {
+      "minSdkVersion": 28
+    },
     "active": true,
     "targets": "all",
     "icon": [

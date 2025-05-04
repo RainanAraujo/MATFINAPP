@@ -344,7 +344,6 @@ function Financiamento() {
     const taxaPorPeriodo = taxa / 100;
 
     let valorPrincipalCalculado = vp;
-    let parcelaCalculada = vPrimeiraNum;
 
     if (vazios[0] === "vPrincipal") {
       // Estimar valor principal com base na inversão da SAM
@@ -353,7 +352,7 @@ function Financiamento() {
 
       const estimarVP = (p: number) => {
         let vpEstimado = 1;
-        let erro = Infinity;
+
         const tolerancia = 0.01;
 
         for (let tentativa = 0; tentativa < 10000; tentativa++) {
