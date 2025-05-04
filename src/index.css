@@ -135,6 +135,7 @@
   --background: #ffffff;
   --foreground: #261f1f;
   --card: #ffffff;
+  --buttonCalcular: #00a63e;
   --card-foreground: #261f1f;
   --popover: #ffffff;
   --popover-foreground: #261f1f;
@@ -210,6 +211,7 @@
   body {
     user-select: none;
     cursor: default;
+    background-color: #0095f4;
     input {
       user-select: text;
       cursor: text;

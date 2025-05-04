@@ -267,10 +267,10 @@ function CalculatorFinanceira() {
   }, []);
 
   return (
-    <div className="flex flex-col h-full  ">
+    <div className="flex flex-col h-full bg-primary  ">
       <Navbar title="Calculadora Financeira" />
 
-      <div className="flex flex-col items-center justify-center h-full">
+      <div className="flex flex-col items-center justify-center h-full rounded-t-2xl  bg-white">
         {error && <div className="text-red-500 text-center">{error}</div>}
         <div
           className=" flex items-center justify-center "

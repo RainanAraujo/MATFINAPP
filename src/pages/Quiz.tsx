@@ -25,9 +25,11 @@ function QuizPage() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-10 h-full">
+    <div className="flex flex-col h-full bg-primary">
       <Navbar title="Quiz" />
-      <Quiz quiz={quizFiltered} shuffle={true} shuffleAnswer={true} />
+      <div className="rounded-t-2xl bg-white p-5 h-full">
+        <Quiz quiz={quizFiltered} shuffle={true} shuffleAnswer={true} />
+      </div>
     </div>
   );
 }

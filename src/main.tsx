@@ -16,9 +16,6 @@ import Conceitos from "./pages/Conceitos.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
-    <div className="absolute font-extrabold opacity-10 w-full h-full text-center  justify-center items-center flex text-9xl  pointer-events-none">
-      BETA
-    </div>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<App />} />

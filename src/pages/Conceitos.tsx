@@ -88,9 +88,9 @@ export default function Conceitos() {
     },
   ];
   return (
-    <div className="flex flex-col gap-10 h-full">
+    <div className="flex flex-col bg-[#0095f4] h-full">
       <Navbar title="Conceitos" />
-      <div className="flex flex-col gap-4 ">
+      <div className="flex flex-col gap-4 p-5 rounded-t-2xl bg-white">
         {conceitos.map((conceito) => (
           <div
             key={conceito.id}
