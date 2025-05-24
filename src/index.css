@@ -1,6 +1,16 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+.startQuizBtn {
+  background-color: #00a63e !important;
+  color: #ffffff !important;
+}
+
+.nextQuestionBtn {
+  background-color: #0095f4 !important;
+  color: #ffffff !important;
+}
+
 .developer span {
   font-weight: 600;
   color: #ff4800;

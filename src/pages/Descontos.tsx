@@ -399,6 +399,7 @@ function Descontos() {
                       </div>
                       <Input
                         placeholder="Valor Nominal"
+                        type="number"
                         {...field}
                         className="w-full  pl-8"
                       />
@@ -419,6 +420,7 @@ function Descontos() {
                     <FormControl>
                       <Input
                         placeholder="Valor"
+                        type="number"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -469,6 +471,7 @@ function Descontos() {
                     <FormControl>
                       <Input
                         placeholder="Valor"
+                        type="number"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -521,6 +524,7 @@ function Descontos() {
                       <Input
                         placeholder="Valor descontado"
                         {...field}
+                        type="number"
                         className="w-full  pl-8"
                       />
                     </div>
