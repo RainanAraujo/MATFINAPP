@@ -399,7 +399,9 @@ function Descontos() {
                       </div>
                       <Input
                         placeholder="Valor Nominal"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         {...field}
                         className="w-full  pl-8"
                       />
@@ -420,7 +422,9 @@ function Descontos() {
                     <FormControl>
                       <Input
                         placeholder="Valor"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -471,7 +475,9 @@ function Descontos() {
                     <FormControl>
                       <Input
                         placeholder="Valor"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -524,7 +530,9 @@ function Descontos() {
                       <Input
                         placeholder="Valor descontado"
                         {...field}
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         className="w-full  pl-8"
                       />
                     </div>

@@ -277,7 +277,9 @@ function Porcentagem() {
                     <FormLabel>x</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor de x"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -296,7 +298,9 @@ function Porcentagem() {
                     <FormLabel>y</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor de y"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -315,7 +319,9 @@ function Porcentagem() {
                     <FormLabel>z</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor de z"
                         {...field}
                         defaultValue={field.value}
@@ -343,7 +349,9 @@ function Porcentagem() {
                     <FormLabel>Valor inicial</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor inicial"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -362,7 +370,9 @@ function Porcentagem() {
                     <FormLabel>Valor final</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor final"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -381,7 +391,9 @@ function Porcentagem() {
                     <FormLabel>Porcentagem de aumento</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor da porcentagem de aumento"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -404,7 +416,9 @@ function Porcentagem() {
                     <FormLabel>Valor inicial</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor inicial"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -423,7 +437,9 @@ function Porcentagem() {
                     <FormLabel>Valor final</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor final"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -442,7 +458,9 @@ function Porcentagem() {
                     <FormLabel>Porcentagem de desconto</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         placeholder="Valor da porcentagem de desconto"
                         {...field}
                         className="w-full border p-2 rounded"

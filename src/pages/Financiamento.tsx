@@ -626,7 +626,9 @@ function Financiamento() {
                       </div>
                       <Input
                         placeholder="Valor principal"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         {...field}
                         className="w-full  pl-8"
                       />
@@ -647,7 +649,9 @@ function Financiamento() {
                     <FormControl>
                       <Input
                         placeholder="Valor"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -698,7 +702,9 @@ function Financiamento() {
                     <FormControl>
                       <Input
                         placeholder="Valor"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -750,7 +756,9 @@ function Financiamento() {
                       </div>
                       <Input
                         placeholder="Valor da primeira parcela"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         {...field}
                         className="w-full  pl-8"
                       />

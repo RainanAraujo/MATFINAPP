@@ -249,7 +249,9 @@ export default function Juros() {
                       </div>
                       <Input
                         placeholder="Valor presente"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         {...field}
                         className="w-full  pl-8"
                       />
@@ -275,7 +277,9 @@ export default function Juros() {
                             valor: e.target.value,
                           });
                         }}
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         value={field.value?.valor}
                         placeholder="Taxa de juros"
                         className="w-full"
@@ -326,7 +330,9 @@ export default function Juros() {
                         }}
                         value={field.value?.valor}
                         placeholder="Tempo"
-                        type="number"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         className="w-full"
                       />
                       {form.watch("tempo")?.valor != "" && (
@@ -372,7 +378,9 @@ export default function Juros() {
                         </div>
                         <Input
                           placeholder="Valor futuro"
-                          type="number"
+                          type="text"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
                           {...field}
                           className="w-full  pl-8"
                         />
