@@ -628,7 +628,6 @@ function Financiamento() {
                         placeholder="Valor principal"
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         {...field}
                         className="w-full  pl-8"
                       />
@@ -651,7 +650,6 @@ function Financiamento() {
                         placeholder="Valor"
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -704,7 +702,6 @@ function Financiamento() {
                         placeholder="Valor"
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -758,7 +755,6 @@ function Financiamento() {
                         placeholder="Valor da primeira parcela"
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         {...field}
                         className="w-full  pl-8"
                       />

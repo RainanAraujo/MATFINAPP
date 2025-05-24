@@ -279,7 +279,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor de x"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -300,7 +299,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor de y"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -321,7 +319,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor de z"
                         {...field}
                         defaultValue={field.value}
@@ -351,7 +348,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor inicial"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -372,7 +368,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor final"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -393,7 +388,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor da porcentagem de aumento"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -418,7 +412,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor inicial"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -439,7 +432,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor final"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -460,7 +452,6 @@ function Porcentagem() {
                       <Input
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         placeholder="Valor da porcentagem de desconto"
                         {...field}
                         className="w-full border p-2 rounded"

@@ -401,7 +401,6 @@ function Descontos() {
                         placeholder="Valor Nominal"
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         {...field}
                         className="w-full  pl-8"
                       />
@@ -424,7 +423,6 @@ function Descontos() {
                         placeholder="Valor"
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -477,7 +475,6 @@ function Descontos() {
                         placeholder="Valor"
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         onChange={(e) => {
                           field.onChange({
                             ...field.value,
@@ -532,7 +529,6 @@ function Descontos() {
                         {...field}
                         type="text"
                         inputMode="numeric"
-                        pattern="[0-9]*"
                         className="w-full  pl-8"
                       />
                     </div>
