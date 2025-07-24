@@ -224,12 +224,12 @@ function Porcentagem() {
     }
   }
   return (
-    <div className="flex flex-col gap-10 h-full">
+    <div className="flex flex-col  h-full bg-primary justify-between">
       <Navbar title="Porcentagem" />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex gap-4 flex-col"
+          className="flex gap-4 flex-col p-5 bg-white rounded-t-2xl pt-10"
           onChange={() => {
             setResultado(null);
           }}
@@ -278,6 +278,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor de x"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -297,6 +298,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor de y"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -316,6 +318,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor de z"
                         {...field}
                         defaultValue={field.value}
@@ -344,6 +347,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor inicial"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -363,6 +367,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor final"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -382,6 +387,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor da porcentagem de aumento"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -405,6 +411,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor inicial"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -424,6 +431,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor final"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -443,6 +451,7 @@ function Porcentagem() {
                     <FormControl>
                       <Input
                         type="text"
+                        inputMode="numeric"
                         placeholder="Valor da porcentagem de desconto"
                         {...field}
                         className="w-full border p-2 rounded"
@@ -504,7 +513,7 @@ function Porcentagem() {
               </div>
             )}
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full bg-[#00a63e]">
             Calcular
           </Button>
         </form>

@@ -1,6 +1,5 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./layout.tsx";
 import Calculadora from "./pages/Calculadora.tsx";
@@ -13,6 +12,7 @@ import CalculatorFinanceira from "./pages/CalculadoraFinanceira.tsx";
 import Financiamento from "./pages/Financiamento.tsx";
 import QuizPage from "./pages/Quiz.tsx";
 import Descontos from "./pages/Descontos.tsx";
+import Conceitos from "./pages/Conceitos.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -20,6 +20,7 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/" element={<Layout />}>
         <Route index element={<App />} />
         <Route path="/calculadora" element={<Calculadora />} />
+        <Route path="/conceitos" element={<Conceitos />} />
         <Route
           path="/calculadora_financeira"
           element={<CalculatorFinanceira />}

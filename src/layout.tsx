@@ -4,7 +4,7 @@ export default function Layout() {
   return (
     <>
       <div className="h-screen w-full">
-        <div className="p-5 h-full">
+        <div className=" h-full">
           <Outlet />
         </div>
       </div>

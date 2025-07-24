@@ -344,7 +344,6 @@ function Financiamento() {
     const taxaPorPeriodo = taxa / 100;
 
     let valorPrincipalCalculado = vp;
-    let parcelaCalculada = vPrimeiraNum;
 
     if (vazios[0] === "vPrincipal") {
       // Estimar valor principal com base na inversão da SAM
@@ -353,7 +352,7 @@ function Financiamento() {
 
       const estimarVP = (p: number) => {
         let vpEstimado = 1;
-        let erro = Infinity;
+
         const tolerancia = 0.01;
 
         for (let tentativa = 0; tentativa < 10000; tentativa++) {
@@ -569,243 +568,256 @@ function Financiamento() {
     }
   }
   return (
-    <div className="flex flex-col gap-10 h-full">
+    <div className="flex flex-col  h-full bg-primary">
       <Navbar title="Financiamento" />
-      <p className="text-sm text-center text-gray-500">
-        Deixe em branco apenas o valor que você quer descobrir e clique em
-        calcular.
-      </p>
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="flex gap-4 flex-col"
-          onChange={() => {
-            setResultado(null);
-          }}
-        >
-          <FormField
-            control={form.control}
-            name="tipo"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Tipo de cálculo</FormLabel>
-                <FormControl>
-                  <Select
-                    onValueChange={(value) => {
-                      field.onChange(value);
-                    }}
-                    defaultValue={field.value}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Selecione o tipo de calculo" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="SAC">SAC</SelectItem>
-                      <SelectItem value="SAF">SAF</SelectItem>
-                      <SelectItem value="PRICE">PRICE</SelectItem>
-                      <SelectItem value="SAM">SAM</SelectItem>
-                      <SelectItem value="SAA">SAA</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="vPrincipal"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Valor Principal</FormLabel>
-                <FormControl>
-                  <div className="relative">
-                    <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
-                      <Money className="h-4 w-4" />
-                    </div>
-                    <Input
-                      placeholder="Valor principal"
-                      {...field}
-                      className="w-full  pl-8"
-                    />
-                  </div>
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="taxaJuros"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Taxa de Juros</FormLabel>
-                <div className="flex gap-2">
-                  <FormControl>
-                    <Input
-                      placeholder="Valor"
-                      onChange={(e) => {
-                        field.onChange({
-                          ...field.value,
-                          valor: e.target.value,
-                        });
-                      }}
-                      value={field.value.valor}
-                      className="w-full"
-                    />
-                  </FormControl>
+      <div className="flex flex-col gap-10 h-full p-5 pt-10 rounded-t-2xl bg-white">
+        <p className="text-sm text-center text-gray-500">
+          Deixe em branco apenas o valor que você quer descobrir e clique em
+          calcular.
+        </p>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex gap-4 flex-col"
+            onChange={() => {
+              setResultado(null);
+            }}
+          >
+            <FormField
+              control={form.control}
+              name="tipo"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tipo de cálculo</FormLabel>
                   <FormControl>
                     <Select
                       onValueChange={(value) => {
-                        field.onChange({
-                          ...field.value,
-                          periodo: value,
-                        });
+                        field.onChange(value);
                       }}
-                      defaultValue={field.value.periodo}
+                      defaultValue={field.value}
                     >
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Selecione o periodo" />
+                        <SelectValue placeholder="Selecione o tipo de calculo" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="dia">% ao Dia</SelectItem>
-                        <SelectItem value="mes">% ao Mês</SelectItem>
-                        <SelectItem value="semestre">% ao Semestre</SelectItem>
-                        <SelectItem value="ano">% ao Ano</SelectItem>
+                        <SelectItem value="SAC">SAC</SelectItem>
+                        <SelectItem value="SAF">SAF</SelectItem>
+                        <SelectItem value="PRICE">PRICE</SelectItem>
+                        <SelectItem value="SAM">SAM</SelectItem>
+                        <SelectItem value="SAA">SAA</SelectItem>
                       </SelectContent>
                     </Select>
                   </FormControl>
-                </div>
-
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="tempo"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Tempo</FormLabel>
-                <div className="flex gap-2">
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="vPrincipal"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Valor Principal</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="Valor"
-                      onChange={(e) => {
-                        field.onChange({
-                          ...field.value,
-                          valor: e.target.value,
-                        });
-                      }}
-                      value={field.value.valor}
-                      className="w-full"
-                    />
-                  </FormControl>
-                  <FormControl>
-                    <Select
-                      onValueChange={(value) => {
-                        field.onChange({
-                          ...field.value,
-                          periodo: value,
-                        });
-                      }}
-                      defaultValue={field.value.periodo}
-                    >
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Selecione o periodo" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="dia">Dia</SelectItem>
-                        <SelectItem value="mes">Mês</SelectItem>
-                        <SelectItem value="semestre">Semestre</SelectItem>
-                        <SelectItem value="ano">Ano</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                </div>
-
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="vPrimeira"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Valor da Primeira Parcela</FormLabel>
-                <FormControl>
-                  <div className="relative">
-                    <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
-                      <Money className="h-4 w-4" />
+                    <div className="relative">
+                      <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
+                        <Money className="h-4 w-4" />
+                      </div>
+                      <Input
+                        placeholder="Valor principal"
+                        type="text"
+                        inputMode="numeric"
+                        {...field}
+                        className="w-full  pl-8"
+                      />
                     </div>
-                    <Input
-                      placeholder="Valor da primeira parcela"
-                      {...field}
-                      className="w-full  pl-8"
-                    />
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="taxaJuros"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Taxa de Juros</FormLabel>
+                  <div className="flex gap-2">
+                    <FormControl>
+                      <Input
+                        placeholder="Valor"
+                        type="text"
+                        inputMode="numeric"
+                        onChange={(e) => {
+                          field.onChange({
+                            ...field.value,
+                            valor: e.target.value,
+                          });
+                        }}
+                        value={field.value.valor}
+                        className="w-full"
+                      />
+                    </FormControl>
+                    <FormControl>
+                      <Select
+                        onValueChange={(value) => {
+                          field.onChange({
+                            ...field.value,
+                            periodo: value,
+                          });
+                        }}
+                        defaultValue={field.value.periodo}
+                      >
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Selecione o periodo" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="dia">% ao Dia</SelectItem>
+                          <SelectItem value="mes">% ao Mês</SelectItem>
+                          <SelectItem value="semestre">
+                            % ao Semestre
+                          </SelectItem>
+                          <SelectItem value="ano">% ao Ano</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
                   </div>
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
 
-          <Button type="submit" className="w-full">
-            Calcular
-          </Button>
-          <div>
-            {resultado && (
-              <div className="flex items-center justify-center h-full pb-10">
-                <div className="overflow-auto">
-                  <table className="min-w-full text-xs">
-                    <thead>
-                      <tr className=" text-left">
-                        <th>Período</th> <th>Saldo devedor</th>
-                        <th>Amortização</th>
-                        <th>Juros</th>
-                        <th>
-                          Prestação
-                          {form.getValues("taxaJuros.periodo") === "mes"
-                            ? "/mês"
-                            : form.getValues("taxaJuros.periodo") === "semestre"
-                            ? "/seme."
-                            : form.getValues("taxaJuros.periodo") === "ano"
-                            ? "/ano"
-                            : form.getValues("taxaJuros.periodo") === "dia"}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {resultado.map((linha) => (
-                        <tr
-                          key={linha.parcela}
-                          className={clsx(
-                            linha.periodo === "Total" && "bg-[#f0f0f0]"
-                          )}
-                        >
-                          <td className="font-semibold">{linha.periodo}</td>
-                          <td>
-                            {linha.saldo !== "-" ? `R$ ${linha.saldo}` : "-"}
-                          </td>
-                          <td>R$ {linha.amortizacao}</td>
-                          <td>R$ {linha.juros}</td>
-                          <td>R$ {linha.parcelaTotal}</td>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="tempo"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tempo</FormLabel>
+                  <div className="flex gap-2">
+                    <FormControl>
+                      <Input
+                        placeholder="Valor"
+                        type="text"
+                        inputMode="numeric"
+                        onChange={(e) => {
+                          field.onChange({
+                            ...field.value,
+                            valor: e.target.value,
+                          });
+                        }}
+                        value={field.value.valor}
+                        className="w-full"
+                      />
+                    </FormControl>
+                    <FormControl>
+                      <Select
+                        onValueChange={(value) => {
+                          field.onChange({
+                            ...field.value,
+                            periodo: value,
+                          });
+                        }}
+                        defaultValue={field.value.periodo}
+                      >
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Selecione o periodo" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="dia">Dia</SelectItem>
+                          <SelectItem value="mes">Mês</SelectItem>
+                          <SelectItem value="semestre">Semestre</SelectItem>
+                          <SelectItem value="ano">Ano</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                  </div>
+
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="vPrimeira"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Valor da Primeira Parcela</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
+                        <Money className="h-4 w-4" />
+                      </div>
+                      <Input
+                        placeholder="Valor da primeira parcela"
+                        type="text"
+                        inputMode="numeric"
+                        {...field}
+                        className="w-full  pl-8"
+                      />
+                    </div>
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button type="submit" className="w-full bg-[#00a63e]">
+              Calcular
+            </Button>
+            <div>
+              {resultado && (
+                <div className="flex items-center justify-center h-full pb-10">
+                  <div className="overflow-auto">
+                    <table className="min-w-full text-xs">
+                      <thead>
+                        <tr className=" text-left">
+                          <th>Período</th> <th>Saldo devedor</th>
+                          <th>Amortização</th>
+                          <th>Juros</th>
+                          <th>
+                            Prestação
+                            {form.getValues("taxaJuros.periodo") === "mes"
+                              ? "/mês"
+                              : form.getValues("taxaJuros.periodo") ===
+                                "semestre"
+                              ? "/seme."
+                              : form.getValues("taxaJuros.periodo") === "ano"
+                              ? "/ano"
+                              : form.getValues("taxaJuros.periodo") === "dia"}
+                          </th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      <tbody>
+                        {resultado.map((linha) => (
+                          <tr
+                            key={linha.parcela}
+                            className={clsx(
+                              linha.periodo === "Total" && "bg-[#f0f0f0]"
+                            )}
+                          >
+                            <td className="font-semibold">{linha.periodo}</td>
+                            <td>
+                              {linha.saldo !== "-" ? `R$ ${linha.saldo}` : "-"}
+                            </td>
+                            <td>R$ {linha.amortizacao}</td>
+                            <td>R$ {linha.juros}</td>
+                            <td>R$ {linha.parcelaTotal}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-        </form>
-      </Form>
+              )}
+            </div>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 }

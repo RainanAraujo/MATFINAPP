@@ -218,112 +218,70 @@ export default function Juros() {
   }
 
   return (
-    <div className="flex flex-col gap-8 mt-4">
+    <div className="flex flex-col gap-8  bg-primary justify-between">
       <Navbar
         title={tipo! == "composto" ? "Juros Compostos" : "Juros Simples"}
       />
 
-      <p className="text-sm text-center text-gray-500">
-        Deixe em branco apenas o valor que você quer descobrir e clique em
-        calcular.
-      </p>
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          onChange={() => {
-            setResultado(null);
-          }}
-          className="flex gap-4 flex-col"
-        >
-          <FormField
-            control={form.control}
-            name="valorPresente"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Valor presente</FormLabel>
-                <FormControl>
-                  <div className="relative">
-                    <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
-                      <Money className="h-4 w-4" />
+      <div className="flex flex-col gap-4 p-5 rounded-t-2xl bg-white">
+        <p className="text-sm text-center text-gray-500">
+          Deixe em branco apenas o valor que você quer descobrir e clique em
+          calcular.
+        </p>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            onChange={() => {
+              setResultado(null);
+            }}
+            className="flex gap-4 flex-col"
+          >
+            <FormField
+              control={form.control}
+              name="valorPresente"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Valor presente</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
+                        <Money className="h-4 w-4" />
+                      </div>
+                      <Input
+                        placeholder="Valor presente"
+                        type="text"
+                        inputMode="numeric"
+                        {...field}
+                        className="w-full  pl-8"
+                      />
                     </div>
-                    <Input
-                      placeholder="Valor presente"
-                      {...field}
-                      className="w-full  pl-8"
-                    />
-                  </div>
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="taxa"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Taxa de juros</FormLabel>
-                <FormControl>
-                  <div className="flex gap-2">
-                    <Input
-                      onChange={(e) => {
-                        field.onChange({
-                          ...field.value,
-                          valor: e.target.value,
-                        });
-                      }}
-                      value={field.value?.valor}
-                      placeholder="Taxa de juros"
-                      className="w-full"
-                    />{" "}
-                    <Select
-                      onValueChange={(value) => {
-                        field.onChange({
-                          ...field.value,
-                          unidade: value as UnidadeTempo,
-                        });
-                      }}
-                      defaultValue={field.value?.unidade}
-                      value={field.value?.unidade}
-                    >
-                      <SelectTrigger className="w-[220px]">
-                        <SelectValue placeholder="Unidade" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="mes">% ao Mês</SelectItem>
-                        <SelectItem value="ano">% ao Ano</SelectItem>
-                        <SelectItem value="semestre">% ao Semestre</SelectItem>
-                        <SelectItem value="dia">% ao Dia</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="tempo"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Tempo</FormLabel>
-                <FormControl>
-                  <div className="flex gap-2">
-                    <Input
-                      onChange={(e) => {
-                        field.onChange({
-                          ...field.value,
-                          valor: e.target.value,
-                        });
-                      }}
-                      value={field.value?.valor}
-                      placeholder="Tempo"
-                      className="w-full"
-                    />
-                    {form.watch("tempo")?.valor != "" && (
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="taxa"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Taxa de juros</FormLabel>
+                  <FormControl>
+                    <div className="flex gap-2">
+                      <Input
+                        onChange={(e) => {
+                          field.onChange({
+                            ...field.value,
+                            valor: e.target.value,
+                          });
+                        }}
+                        type="text"
+                        inputMode="numeric"
+                        value={field.value?.valor}
+                        placeholder="Taxa de juros"
+                        className="w-full"
+                      />{" "}
                       <Select
                         onValueChange={(value) => {
                           field.onChange({
@@ -338,69 +296,124 @@ export default function Juros() {
                           <SelectValue placeholder="Unidade" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="mes">Mês</SelectItem>
-                          <SelectItem value="ano">Ano</SelectItem>
-                          <SelectItem value="semestre">Semestre</SelectItem>
-                          <SelectItem value="dia">Dia</SelectItem>
+                          <SelectItem value="mes">% ao Mês</SelectItem>
+                          <SelectItem value="ano">% ao Ano</SelectItem>
+                          <SelectItem value="semestre">
+                            % ao Semestre
+                          </SelectItem>
+                          <SelectItem value="dia">% ao Dia</SelectItem>
                         </SelectContent>
                       </Select>
-                    )}
-                  </div>
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="valorFuturo"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Valor Futuro</FormLabel>
-                <FormControl>
-                  <div className="flex gap-2">
-                    <div className="relative  w-full">
-                      <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
-                        <Money className="h-4 w-4" />
-                      </div>
-                      <Input
-                        placeholder="Valor futuro"
-                        {...field}
-                        className="w-full  pl-8"
-                      />
                     </div>
-                  </div>
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className="h-20">
-            {resultado && (
-              <div className="flex items-center justify-center h-full">
-                <p className="text-2xl  text-gray-800">
-                  <span>
-                    {form.watch("valorPresente") == "" &&
-                      "Valor Presente = " + resultado}
-                    {form.watch("valorFuturo") == "" &&
-                      "Valor Futuro = " + resultado}
-                    {form.watch("taxa")?.valor == "" &&
-                      "Taxa = " +
-                        resultado +
-                        "% ao " +
-                        form.watch("taxa")?.unidade}
-                    {form.watch("tempo")?.valor == "" && "Tempo = " + resultado}
-                  </span>
-                </p>
-              </div>
-            )}
-          </div>
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="tempo"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tempo</FormLabel>
+                  <FormControl>
+                    <div className="flex gap-2">
+                      <Input
+                        onChange={(e) => {
+                          field.onChange({
+                            ...field.value,
+                            valor: e.target.value,
+                          });
+                        }}
+                        value={field.value?.valor}
+                        placeholder="Tempo"
+                        type="text"
+                        inputMode="numeric"
+                        className="w-full"
+                      />
+                      {form.watch("tempo")?.valor != "" && (
+                        <Select
+                          onValueChange={(value) => {
+                            field.onChange({
+                              ...field.value,
+                              unidade: value as UnidadeTempo,
+                            });
+                          }}
+                          defaultValue={field.value?.unidade}
+                          value={field.value?.unidade}
+                        >
+                          <SelectTrigger className="w-[220px]">
+                            <SelectValue placeholder="Unidade" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="mes">Mês</SelectItem>
+                            <SelectItem value="ano">Ano</SelectItem>
+                            <SelectItem value="semestre">Semestre</SelectItem>
+                            <SelectItem value="dia">Dia</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      )}
+                    </div>
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="valorFuturo"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Valor Futuro</FormLabel>
+                  <FormControl>
+                    <div className="flex gap-2">
+                      <div className="relative  w-full">
+                        <div className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground">
+                          <Money className="h-4 w-4" />
+                        </div>
+                        <Input
+                          placeholder="Valor futuro"
+                          type="text"
+                          inputMode="numeric"
+                          {...field}
+                          className="w-full  pl-8"
+                        />
+                      </div>
+                    </div>
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="h-20">
+              {resultado && (
+                <div className="flex items-center justify-center h-full">
+                  <p className="text-2xl  text-gray-800">
+                    <span>
+                      {form.watch("valorPresente") == "" &&
+                        "Valor Presente = " + resultado}
+                      {form.watch("valorFuturo") == "" &&
+                        "Valor Futuro = " + resultado}
+                      {form.watch("taxa")?.valor == "" &&
+                        "Taxa = " +
+                          resultado +
+                          "% ao " +
+                          form.watch("taxa")?.unidade}
+                      {form.watch("tempo")?.valor == "" &&
+                        "Tempo = " + resultado}
+                    </span>
+                  </p>
+                </div>
+              )}
+            </div>
 
-          <Button className="w-full">Calcular</Button>
-        </form>
-      </Form>
+            <Button className="w-full bg-[#00a63e]">Calcular</Button>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 }

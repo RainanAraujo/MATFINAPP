@@ -128,9 +128,9 @@ function Calculator() {
   }
 
   return (
-    <div className="flex flex-col justify-between h-full">
+    <div className="flex flex-col justify-between h-full bg-primary">
       <Navbar title="Calculadora Científica" />
-      <div className="calculator w-full ">
+      <div className="calculator w-full  rounded-t-2xl bg-white p-5">
         <DisplayWindow expression={displayEXP} result={result} />
         <KeysWindow handleButton={handleButton} />
       </div>
