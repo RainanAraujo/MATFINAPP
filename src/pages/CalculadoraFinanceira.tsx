@@ -274,7 +274,7 @@ function CalculatorFinanceira() {
         {error && <div className="text-red-500 text-center">{error}</div>}
         <div
           className=" flex items-center justify-center "
-          style={{ transform: "rotate(90deg)", transformOrigin: "center" }}
+          style={{ transformOrigin: "center" }}
         >
           <div ref={containerRef} dangerouslySetInnerHTML={{ __html: inner }} />
         </div>
