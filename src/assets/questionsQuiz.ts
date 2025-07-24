@@ -65,7 +65,7 @@ export const quiz = {
       correctAnswer: "3",
       messageForCorrectAnswer: "Correto!",
       messageForIncorrectAnswer: "Resposta incorreta.",
-      point: "5",
+      point: "10",
     },
     {
       question: "Os juros simples são calculados com base:",
@@ -165,7 +165,7 @@ export const quiz = {
       correctAnswer: "2",
       messageForCorrectAnswer: "Correto!",
       messageForIncorrectAnswer: "Resposta incorreta.",
-      point: "5",
+      point: "10",
     },
     {
       question:
@@ -182,7 +182,7 @@ export const quiz = {
       correctAnswer: "2",
       messageForCorrectAnswer: "Correto!",
       messageForIncorrectAnswer: "Resposta incorreta.",
-      point: "5",
+      point: "10",
     },
     {
       question:
@@ -199,7 +199,7 @@ export const quiz = {
       correctAnswer: "3",
       messageForCorrectAnswer: "Correto!",
       messageForIncorrectAnswer: "Resposta incorreta.",
-      point: "5",
+      point: "10",
     },
     {
       question:
@@ -262,7 +262,7 @@ export const quiz = {
       correctAnswer: "3",
       messageForCorrectAnswer: "Correto!",
       messageForIncorrectAnswer: "Resposta incorreta.",
-      point: "15",
+      point: "10",
     },
     {
       question:
@@ -279,7 +279,7 @@ export const quiz = {
       correctAnswer: "1",
       messageForCorrectAnswer: "Correto!",
       messageForIncorrectAnswer: "Resposta incorreta.",
-      point: "15",
+      point: "10",
     },
   ],
 };
